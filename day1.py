@@ -1,4 +1,4 @@
-with open('inputs/input_day_1.txt', 'r') as file:
+with open('inputs/day1.txt', 'r') as file:
     numbers = file.readlines()
     numbers = [int(number.strip()) for number in numbers]
     groups = []

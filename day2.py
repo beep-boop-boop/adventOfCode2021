@@ -1,4 +1,4 @@
-with open('inputs/input_day2.txt', 'r') as file:
+with open('inputs/day2.txt', 'r') as file:
     commands = [line.strip() for line in file.readlines()]
     horizontal = 0
     vertical = 0
