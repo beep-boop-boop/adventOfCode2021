@@ -3,6 +3,11 @@ with open('inputs/day1.txt', 'r') as file:
     numbers = [int(number.strip()) for number in numbers]
     groups = []
     count = 0
+    for i in range(len(numbers) - 1):
+        if numbers[i + 1] > numbers[i]:
+            count += 1
+    print(count)
+    count = 0
     for i in range(len(numbers) - 2):
         groups.append([])
         for d in range(i, i + 3):
@@ -11,4 +16,4 @@ with open('inputs/day1.txt', 'r') as file:
     for i in range(len(groups) - 1):
         if groups[i + 1] > groups[i]:
             count += 1
-print(count)
+    print(count)
