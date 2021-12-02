@@ -1,4 +1,4 @@
-with open('C:/Desktop/University-yr2/Advent of code 2021/day 1/input.txt', 'r') as file:
+with open('inputs/input_day_1.txt', 'r') as file:
     numbers = file.readlines()
     numbers = [int(number.strip()) for number in numbers]
     groups = []
