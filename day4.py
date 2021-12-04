@@ -45,10 +45,9 @@ def play_bingo_last(numbers, boards):
     for num in numbers:
         for board in boards:
             if not is_bingo(board): # not marking boards which have already bingoed
-                if mark_number(num, board):
-                    if is_bingo(board):
-                        last_board = board
-                        last_num = num
+                if mark_number(num, board) and is_bingo(board):
+                    last_board = board
+                    last_num = num
     return last_board, last_num
 
 first_board, first_num = play_bingo_first(numbers, boards)
