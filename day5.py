@@ -33,7 +33,7 @@ for row in field:
         if cell >= 2:
             over2 += 1
 
-print(over2)
+print(over2) # part 1
 
 lines_diag = []
 
@@ -58,7 +58,7 @@ for row in field:
         if cell >= 2:
             over2 += 1
 
-print(over2)
+print(over2) # part 2
 
 
 
