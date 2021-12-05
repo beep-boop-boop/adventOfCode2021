@@ -39,11 +39,11 @@ lines_diag = []
 
 for line in lines:
     try:
-        gradient = (line[1][0] - line[0][0]) / (line[1][1] - line[0][1])
+        gradient = (line[1][1] - line[0][1]) / (line[1][0] - line[0][0]) # change in y over change in x... classic
         intercept = line[0][1] - (gradient * line[0][0])
         if gradient == 1 or gradient == -1:
             lines_diag.append([line, (gradient, intercept)])
-    except ZeroDivisionError:
+    except ZeroDivisionError: # happens for vertical lines, we can ignore it anyway
         continue
 
 for line in lines_diag:
