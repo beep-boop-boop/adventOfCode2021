@@ -1,7 +1,6 @@
 crabs = [int(crab) for crab in open('inputs/day7.txt', 'r').readline().split(',')]
 
 min_fuel = 1000000
-
 for position in range(len(crabs)):
     min_attempt = sum([abs(crab - position) for crab in crabs])
     if min_attempt < min_fuel:

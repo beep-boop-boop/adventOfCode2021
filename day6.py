@@ -1,18 +1,21 @@
-import math
+from collections import Counter
+from functools import cache
 fish = [int(timer.strip()) for timer in open('inputs/day6.txt').readline().split(',')]
-def growth(fish, ndays):
-    for _ in range(ndays):
-        for i in range(len(fish)):
-            if fish[i] == 0:
-                fish[i] = 6
-                fish.append(8)
+def fish_growth(fish, ndays):
+    @cache
+    def growth(timer, ndays):
+        if ndays == 0:
+            return 1
+        else:
+            if timer == 0:
+                return growth(8, ndays - 1) + growth(6, ndays - 1)
             else:
-                fish[i] -= 1
-    return len(fish)
+                return growth(timer - 1, ndays - 1)
+    fish_count = Counter(fish)
+    total = 0
+    for timer in fish_count:
+        total += growth(timer, ndays) * fish_count[timer]
+    return total
 
-print(growth(fish, 80)) # part 1
-
-
-
-def reproductions_single(days_left, timer):
-    return ((days_left - timer - 1) // 7) + 1
+print(fish_growth(fish, 80))
+print(fish_growth(fish, 256))
