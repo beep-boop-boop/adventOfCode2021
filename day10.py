@@ -47,12 +47,12 @@ def complete(line):
     for char in line:
         if char in list(bracket_pairs.values()):
             stack.insert(0, char)
-            offenders.insert(0, bracket_pairs_reversed[char])
+            offenders.insert(0, bracket_pairs_reversed[char]) # assume this opening bracket has an issue (uncomplete)
         else:
-            offender = char# will be a closing bracket
+            offender = char
             if len(stack) > 0 and stack[0] == bracket_pairs[offender]:
                 stack.pop(0)
-                offenders.pop(0)
+                offenders.pop(0) # issue resolved, current bracket no longer an offender 
 
     return offenders
 total_error = 0
