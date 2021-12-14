@@ -17,8 +17,8 @@ def part_1(points, command):
             if points[i][1] > command[1]:
                 points[i] = (points[i][0], command[1] - (points[i][1] - command[1]))
     return list(set(points))
-print(f"part one: {len(part_1(points, folds[1]))}")
 
+print(f"part one: {len(part_1(points, folds[1]))}")
 for fold in folds:
     points = part_1(points, fold)
 max_x = max(point[0] for point in points)
