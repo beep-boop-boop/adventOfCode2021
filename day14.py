@@ -40,7 +40,7 @@ def count_diff(template):
     counts = {}
     for letter in letters:
         counts[letter] = sum([template[pair] * pair.count(letter) for pair in template])//2 + \
-            (1 if letter in [template_str[0], template_str[len(template_str) - 1]] else 0)
+            (1 if letter in [template_str[0], template_str[len(template_str) - 1]] else 0) # dividing by two to account for overlapping pairs.
     return max(counts.values()) - min(counts.values())
 
 def solve(template, rules, iterations):
